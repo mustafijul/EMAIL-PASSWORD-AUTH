@@ -2,18 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
 
-    const handleLogin = event => {
-        event.preventDefault();
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
-
-        console.log(email, password);
-    }
-
-
-
+    console.log(email, password);
+  };
 
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -23,7 +19,6 @@ const Login = () => {
         </div>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleLogin} className="card-body">
-            
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -57,12 +52,14 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
           </form>
-          <label className="label"> <p className="mb-4 ml-8">
-          <Link className="label-text-alt link link-hover" to='/Register'>New to As Sunnah? Please register</Link>
-          </p></label>
-         
-          
-          
+          <label className="label">
+            {" "}
+            <p className="mb-4 ml-8">
+              <Link className="label-text-alt link link-hover" to="/Register">
+                New to As Sunnah? Please register
+              </Link>
+            </p>
+          </label>
         </div>
       </div>
     </div>
